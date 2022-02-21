@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "2bdf6958-687c-448e-8c90-074c39a23c1e",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"PKSingh\",\r\n    \"password\":\"Golu@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/rest-auth/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"rest-auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"testuser33@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_url}}/rest-auth/password/reset/",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"rest-auth",
+								"password",
+								"reset",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password Reset Confirm",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "uid",
+								"value": "{{uid}}",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new_password1\":\"dcbekgdglwebdnliudhceiunn_win2dwbdh\",\r\n    \"new_password2\":\"dcbekgdglwebdnliudhceiunn_win2dwbdh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_url}}/rest-auth/password/reset/confirm/",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"rest-auth",
+								"password",
+								"reset",
+								"confirm",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password Change",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new_password1\":\"dcbekgdglwebdnliudhceiunn_win2dwbdh\",\r\n    \"new_password2\":\"dcbekgdglwebdnliudhceiunn_win2dwbdh\",\r\n    \"old_password\":\"pbkdf2_sha256$260000$NjK1wYQugCyP0bSmfUyrVn$i+E+2g3az2nfou1gX4PaFohULQLKTXaMyt1IRBh2CUE=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_url}}/rest-auth/password/change/",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"rest-auth",
+								"password",
+								"change",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dev_url}}/core/user-profile/",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"core",
+								"user-profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{dev_url}}/core/user-profile/",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"core",
+								"user-profile",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Items and Categories",
+			"item": [
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Pizza\",\n    \"price\": 300,\n    \"discount_percentage\": 10,\n    \"description\": \"Some description\",\n    \"is_nonveg\": false,\n    \"is_available\": true,\n    \"preparation_time\": 30,\n    \"category\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/item_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"item_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all items",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Add Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"pizza category\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/category_list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"category_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all categories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": []
+		}
+	]
+}
